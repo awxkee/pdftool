@@ -19,14 +19,11 @@ extension UIImage {
         let image = UIImage(named: named)
         
         if image == nil {
-            let podBundle = Bundle(for: PDFViewController.classForCoder())
-            if let bundleURL = podBundle.url(forResource: "UXMPDFKit", withExtension: "bundle"),
-                let bundle = Bundle(url: bundleURL) {
-                return UIImage(
-                    named: named,
-                    in: bundle,
-                    compatibleWith: nil)
-            }
+            let podBundle = Bundle.module
+            return UIImage(
+                named: named,
+                in: bundle,
+                compatibleWith: nil)
         }
         return image
     }
