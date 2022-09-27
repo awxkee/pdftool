@@ -122,62 +122,63 @@ open class PDFDocument: NSObject, NSCoding {
             return
         }
         
-        let infoDic: CGPDFDictionaryRef = pdfDocRef.info!
-        var string: CGPDFStringRef? = nil
-        
-        if CGPDFDictionaryGetString(infoDic, "Title", &string) {
-            
-            if let ref: CFString = CGPDFStringCopyTextString(string!) {
-                self.title = ref as String
+        if let infoDic: CGPDFDictionaryRef = pdfDocRef.info {
+            var string: CGPDFStringRef? = nil
+
+            if CGPDFDictionaryGetString(infoDic, "Title", &string) {
+
+                if let ref: CFString = CGPDFStringCopyTextString(string!) {
+                    self.title = ref as String
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "Author", &string) {
-            
-            if let ref: CFString = CGPDFStringCopyTextString(string!) {
-                self.author = ref as String
+
+            if CGPDFDictionaryGetString(infoDic, "Author", &string) {
+
+                if let ref: CFString = CGPDFStringCopyTextString(string!) {
+                    self.author = ref as String
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "Subject", &string) {
-            
-            if let ref: CFString = CGPDFStringCopyTextString(string!) {
-                self.subject = ref as String
+
+            if CGPDFDictionaryGetString(infoDic, "Subject", &string) {
+
+                if let ref: CFString = CGPDFStringCopyTextString(string!) {
+                    self.subject = ref as String
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "Keywords", &string) {
-            
-            if let ref: CFString = CGPDFStringCopyTextString(string!) {
-                self.keywords = ref as String
+
+            if CGPDFDictionaryGetString(infoDic, "Keywords", &string) {
+
+                if let ref: CFString = CGPDFStringCopyTextString(string!) {
+                    self.keywords = ref as String
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "Creator", &string) {
-            
-            if let ref: CFString = CGPDFStringCopyTextString(string!) {
-                self.creator = ref as String
+
+            if CGPDFDictionaryGetString(infoDic, "Creator", &string) {
+
+                if let ref: CFString = CGPDFStringCopyTextString(string!) {
+                    self.creator = ref as String
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "Producer", &string) {
-            
-            if let ref: CFString = CGPDFStringCopyTextString(string!) {
-                self.producer = ref as String
+
+            if CGPDFDictionaryGetString(infoDic, "Producer", &string) {
+
+                if let ref: CFString = CGPDFStringCopyTextString(string!) {
+                    self.producer = ref as String
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "CreationDate", &string) {
-            
-            if let ref: CFDate = CGPDFStringCopyDate(string!) {
-                self.creationDate = ref as Date
+
+            if CGPDFDictionaryGetString(infoDic, "CreationDate", &string) {
+
+                if let ref: CFDate = CGPDFStringCopyDate(string!) {
+                    self.creationDate = ref as Date
+                }
             }
-        }
-        
-        if CGPDFDictionaryGetString(infoDic, "ModDate", &string) {
-            
-            if let ref: CFDate = CGPDFStringCopyDate(string!) {
-                self.modificationDate = ref as Date
+
+            if CGPDFDictionaryGetString(infoDic, "ModDate", &string) {
+
+                if let ref: CFDate = CGPDFStringCopyDate(string!) {
+                    self.modificationDate = ref as Date
+                }
             }
         }
         
