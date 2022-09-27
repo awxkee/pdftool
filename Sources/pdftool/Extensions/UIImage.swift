@@ -22,7 +22,7 @@ extension UIImage {
             let podBundle = Bundle.module
             return UIImage(
                 named: named,
-                in: bundle,
+                in: podBundle,
                 compatibleWith: nil)
         }
         return image
